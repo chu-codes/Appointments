@@ -1,0 +1,24 @@
+.background {
+  height: 100vh;
+  background: url(/assets/images/final.jpeg) no-repeat;
+  padding-top: 30px;
+}
+
+.container {
+  margin-top: 20px;
+  width: 500px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 8px rgb(9, 19, 36);
+  border-radius: 25px;
+  backdrop-filter: blur(30px);
+  color: white;
+}
+
+.row {
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 10px;
+}

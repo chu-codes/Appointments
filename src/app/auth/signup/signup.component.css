@@ -1,0 +1,42 @@
+.background {
+  height: 130vh;
+  background: url(/assets/images/final.jpeg) no-repeat;
+  padding-top: 30px;
+}
+
+.row {
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+.container {
+  margin-top: 20px;
+  width: 500px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 8px rgb(9, 19, 36);
+  border-radius: 25px;
+  backdrop-filter: blur(30px);
+  color: white;
+  /* margin-left: 100px; */
+}
+
+h3 {
+  padding-left: 30px;
+  color: red;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+/*input.ng-valid {
+  border-left: 5px solid green;
+} */
+
+.error {
+  color: red;
+}
+
+button {
+  margin-top: 10px;
+}

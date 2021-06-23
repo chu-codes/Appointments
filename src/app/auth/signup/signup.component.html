@@ -1,0 +1,143 @@
+<div class="background">
+  <div class="container">
+    <div class="row mt-4">
+      <div style="text-align: center">
+        <h2>User Registration</h2>
+      </div>
+
+      <div class="col-12">
+        <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+          <div class="row" *ngIf="authError">
+            <div class="col-12 alert alert-danger">
+              {{ authError?.message }}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <label for="firstName">First name</label>
+              <input
+                required
+                ngModel
+                #firstName="ngModel"
+                name="firstName"
+                type="text"
+                class="form-control"
+                id="firstName"
+              />
+              <span
+                *ngIf="firstName.invalid && firstName.touched"
+                class="error"
+              >
+                This field is required
+              </span>
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="lastName">Last name</label>
+              <input
+                required
+                ngModel
+                #lastName="ngModel"
+                name="lastName"
+                type="text"
+                class="form-control"
+                id="lastName"
+              />
+              <span *ngIf="lastName.invalid && lastName.touched" class="error">
+                This field is required
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="email">Email</label>
+              <input
+                required
+                email
+                ngModel
+                #email="ngModel"
+                name="email"
+                type="email"
+                class="form-control"
+              />
+            </div>
+            <span *ngIf="email.errors?.required && email.touched" class="error">
+              This field is required
+            </span>
+            <span *ngIf="email.errors?.email && email.touched" class="error">
+              This email is invalid
+            </span>
+          </div>
+          <div>
+            <div class="row">
+              <div class="col-md-12 mb-2">
+                <label for="password">Password</label>
+                <input
+                  required
+                  minlength="6"
+                  ngModel
+                  #password="ngModel"
+                  name="password"
+                  type="password"
+                  class="form-control"
+                />
+              </div>
+              <span
+                *ngIf="password.errors?.required && password.touched"
+                class="error"
+              >
+                This field is required
+              </span>
+              <span
+                *ngIf="password.errors?.minlength && password.touched"
+                class="error"
+              >
+                Password should have atleast six characters
+              </span>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-2">
+                <label>Confirm Password</label>
+                <input
+                  confirmValidator="password"
+                  required
+                  ngModel
+                  #passwordconfirm="ngModel"
+                  name="passwordconfirm"
+                  type="password"
+                  class="form-control"
+                />
+              </div>
+              <span
+                *ngIf="
+                  passwordconfirm.errors?.required && passwordconfirm.touched
+                "
+                class="error"
+              >
+                This field is required
+              </span>
+
+              <span
+                *ngIf="
+                  passwordconfirm.errors?.notEqual && passwordconfirm.touched
+                "
+                class="error"
+              >
+                Password doesn't match
+              </span>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <a href="/login" style="color: white">Click here to Login</a>
+              </div>
+              <div class="col-md-12">
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <h3>{{ message }}</h3>
+  </div>
+</div>

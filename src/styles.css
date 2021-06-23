@@ -1,0 +1,94 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  margin: 0px 40px;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+form.normal-form {
+  margin: 10px;
+}
+
+.controller-container {
+  width: 100%;
+  padding: 5%;
+}
+
+.controller-container > * {
+  width: 100%;
+}
+
+.button-row button {
+  margin: 5px;
+}
+
+snack-bar-container.success {
+  background-color: green;
+  color: white;
+}
+
+snack-bar-container.warn {
+  background-color: orange;
+  color: white;
+}
+
+snack-bar-container.notification simple-snack-bar {
+  font-size: 15px !important;
+}
+
+.hide {
+  display: none;
+}
+
+mat-footer-row mat-footer-cell {
+  justify-content: center;
+  font-style: italic;
+}
+
+.search-div {
+  margin: 10px;
+}
+
+.search-form-field {
+  width: 250px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.search-form-field .mat-form-field-underline {
+  display: none;
+}
+
+.search-form-field .mat-form-field-infix {
+  border-top: 0px;
+}
+
+.search-form-field .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.search-form-field .mat-form-field-suffix button {
+  height: 32px;
+  width: 32px;
+}
+
+.btn-dialog-close {
+  width: 45px;
+  min-width: 0 !important;
+  height: 40px;
+  padding: 0 !important;
+}

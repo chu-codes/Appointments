@@ -1,0 +1,40 @@
+<div class="container1">
+  <div class="header-container">
+    <div fxLayout="column" fxLayoutAlign="flex-front">
+      <h1>
+        Book your Appointment <br />
+        <span>NOW</span>
+      </h1>
+    </div>
+  </div>
+  <p *ngIf="user" class="loginmessage" style="font-size: 20px">
+    Welcome {{ user?.displayName }}
+  </p>
+  <button
+    class="first btn btn-outline-primary"
+    *ngIf="!user"
+    (click)="signup()"
+  >
+    Sign Up
+  </button>
+  <button class="first btn btn-outline-primary" *ngIf="user" (click)="logOut()">
+    Log Out
+  </button>
+  <button class="btn btn-outline-primary" *ngIf="!user" (click)="login()">
+    Log In
+  </button>
+
+  <div class="create-appointment-container">
+    <div fxFlex fxLayoutAlign="flex-front">
+      <button
+        class="home-create-button"
+        mat-stroked-button
+        color="primary"
+        *ngIf="user"
+        (click)="onclickCreateAppointment()"
+      >
+        Create Appointment
+      </button>
+    </div>
+  </div>
+</div>

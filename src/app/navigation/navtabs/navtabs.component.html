@@ -1,0 +1,44 @@
+<div class="navtabs-container">
+  <span class="toolbar-flex"></span>
+  <nav mat-tab-nav-bar fxFlex fxLayout fxLayoutAlign="center center">
+    <a
+      mat-tab-link
+      *ngFor="let link of links"
+      [routerLink]="link.path"
+      (click)="activelink = link.path"
+      [active]="activelink == link.path"
+    >
+      {{ link.label }}
+    </a>
+  </nav>
+  <!-- <nav mat-tab-nav-bar fxFlex fxLayout fxLayoutAlign="center center">
+    <a
+      mat-tab-link
+      routerLink="/"
+      routerLinkActive
+      #home="routerLinkActive"
+      [active]="home.isActive"
+    >
+      Home
+    </a>
+
+    <a
+      mat-tab-link
+      routerLink="/appointments"
+      routerLinkActive
+      #appointments="routerLinkActive"
+      [active]="appointments.isActive"
+    >
+      Appointments
+    </a>
+    <a
+      mat-tab-link
+      routerLink="/admin"
+      routerLinkActive
+      #admin="routerLinkActive"
+      [active]="admin.isActive"
+    >
+      Admin Dashboard
+    </a>
+  </nav> -->
+</div>

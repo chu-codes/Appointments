@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "scheduler-project-5284c": {
+      "hosting": {
+        "Application": [
+          "scheduler-project-5284c"
+        ]
+      }
+    }
+  }
+}
