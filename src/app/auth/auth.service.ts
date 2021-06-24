@@ -7,6 +7,7 @@ import {
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { NotificationService } from '../shared/notification.service';
 import { Item } from './users';
 
 @Injectable({
@@ -25,7 +26,8 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {
     this.items = this.db.collection('Users').valueChanges();
   }
@@ -47,10 +49,11 @@ export class AuthService {
       .then((userCredential) => {
         if (userCredential) {
           this.router.navigate(['/home']);
+          this.notificationService.success('Successfully logged in');
+          localStorage.setItem('token', 'true');
         } else {
         }
       });
-    localStorage.setItem('token', 'true');
   }
 
   createUser(user) {
@@ -58,7 +61,7 @@ export class AuthService {
       .createUserWithEmailAndPassword(user.email, user.password)
       .then((userCredential) => {
         this.newUser = user;
-        console.log(userCredential);
+        // console.log(userCredential);
         userCredential.user.updateProfile({
           displayName: user.firstName + ' ' + user.lastName,
         });
@@ -66,6 +69,7 @@ export class AuthService {
         this.insertUserData(userCredential).then(() => {
           this.router.navigate(['/login']);
         });
+        this.notificationService.success('User successfully created');
       })
       .catch((error) => {
         this.eventAuthError.next(error);
@@ -84,6 +88,7 @@ export class AuthService {
 
   logOut() {
     this.isLoggedIn = false;
+    this.router.navigate(['/home']);
     localStorage.clear();
     return this.afAuth.signOut();
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import firebase from 'firebase/app';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,11 @@ import firebase from 'firebase/app';
 export class HomeComponent implements OnInit {
   user: firebase.User;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit() {
     this.auth.getUserState().subscribe((user) => {
@@ -25,6 +30,7 @@ export class HomeComponent implements OnInit {
 
   logOut() {
     this.auth.logOut();
+    this.notificationService.success('Logged Out');
   }
 
   signup() {
@@ -36,5 +42,9 @@ export class HomeComponent implements OnInit {
   }
   needToLogIn() {
     console.log('hi');
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token');
   }
 }

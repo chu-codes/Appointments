@@ -7,20 +7,24 @@
       </h1>
     </div>
   </div>
-  <p *ngIf="user" class="loginmessage" style="font-size: 20px">
+  <p *ngIf="!loggedIn" class="loginmessage" style="font-size: 20px">
     Welcome {{ user?.displayName }}
   </p>
   <button
     class="first btn btn-outline-primary"
-    *ngIf="!user"
+    *ngIf="!loggedIn()"
     (click)="signup()"
   >
     Sign Up
   </button>
-  <button class="first btn btn-outline-primary" *ngIf="user" (click)="logOut()">
+  <button
+    class="first btn btn-outline-primary"
+    *ngIf="!!loggedIn()"
+    (click)="logOut()"
+  >
     Log Out
   </button>
-  <button class="btn btn-outline-primary" *ngIf="!user" (click)="login()">
+  <button class="btn btn-outline-primary" *ngIf="!loggedIn()" (click)="login()">
     Log In
   </button>
 
@@ -30,7 +34,7 @@
         class="home-create-button"
         mat-stroked-button
         color="primary"
-        *ngIf="user"
+        *ngIf="!loggedIn()"
         (click)="onclickCreateAppointment()"
       >
         Create Appointment

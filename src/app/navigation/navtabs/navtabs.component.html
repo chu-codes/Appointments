@@ -10,35 +10,14 @@
     >
       {{ link.label }}
     </a>
+    <div>
+      <button
+        class="btn btn-outline-primary"
+        *ngIf="!!loggedIn()"
+        (click)="logOut()"
+      >
+        Log Out
+      </button>
+    </div>
   </nav>
-  <!-- <nav mat-tab-nav-bar fxFlex fxLayout fxLayoutAlign="center center">
-    <a
-      mat-tab-link
-      routerLink="/"
-      routerLinkActive
-      #home="routerLinkActive"
-      [active]="home.isActive"
-    >
-      Home
-    </a>
-
-    <a
-      mat-tab-link
-      routerLink="/appointments"
-      routerLinkActive
-      #appointments="routerLinkActive"
-      [active]="appointments.isActive"
-    >
-      Appointments
-    </a>
-    <a
-      mat-tab-link
-      routerLink="/admin"
-      routerLinkActive
-      #admin="routerLinkActive"
-      [active]="admin.isActive"
-    >
-      Admin Dashboard
-    </a>
-  </nav> -->
 </div>

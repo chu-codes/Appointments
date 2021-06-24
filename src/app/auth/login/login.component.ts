@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/shared/notification.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,7 +11,10 @@ export class LoginComponent implements OnInit {
   isLoggedIn: boolean = false;
   authError: any;
 
-  constructor(private auth: AuthService) {}
+  constructor(
+    private auth: AuthService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit() {
     this.auth.eventAuthError$.subscribe((data) => {
